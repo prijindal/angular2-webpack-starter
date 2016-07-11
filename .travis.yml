@@ -1,0 +1,19 @@
+branches:
+  only:
+    - master
+
+language: node_js
+node_js:
+  - "6"
+
+cache:
+  directories:
+    - node_modules
+    - typings
+    
+notifications:
+  slack: calmgorilla:y1llPxv6wylRIR0n00hUFrcJ
+
+script: echo "Test Completed"
+after_success:
+  - npm run surge-deploy
